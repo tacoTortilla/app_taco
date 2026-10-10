@@ -1,0 +1,14 @@
+{
+  "name": "Taco Navi",
+  "short_name": "Taco Navi",
+  "description": "タコスのお店と情報をまとめてチェック",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffaf2",
+  "theme_color": "#e2572b",
+  "lang": "ja",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

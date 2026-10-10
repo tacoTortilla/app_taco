@@ -1,0 +1,74 @@
+[
+  {
+    "id": "al-pastor",
+    "name": "アル・パストール",
+    "nameEs": "Al Pastor",
+    "emoji": "🐷",
+    "region": "メキシコシティ",
+    "spicy": 2,
+    "description": "チリとアチョーテでマリネした豚肉を、ケバブのような回転串（トロンポ）で焼き上げる。上にパイナップルを乗せるのが定番。"
+  },
+  {
+    "id": "carnitas",
+    "name": "カルニータス",
+    "nameEs": "Carnitas",
+    "emoji": "🐖",
+    "region": "ミチョアカン州",
+    "spicy": 1,
+    "description": "豚肉をラードでじっくり煮込み、外はカリッと中はほろほろに仕上げる。"
+  },
+  {
+    "id": "carne-asada",
+    "name": "カルネ・アサダ",
+    "nameEs": "Carne Asada",
+    "emoji": "🐄",
+    "region": "メキシコ北部",
+    "spicy": 1,
+    "description": "ライムやスパイスでマリネした牛肉を炭火で焼き、細かく刻んで包む。"
+  },
+  {
+    "id": "barbacoa",
+    "name": "バルバコア",
+    "nameEs": "Barbacoa",
+    "emoji": "🐑",
+    "region": "イダルゴ州",
+    "spicy": 1,
+    "description": "羊や牛の肉をリュウゼツランの葉で包み、地中の窯で蒸し焼きにする伝統料理。"
+  },
+  {
+    "id": "birria",
+    "name": "ビリア",
+    "nameEs": "Birria",
+    "emoji": "🍲",
+    "region": "ハリスコ州",
+    "spicy": 2,
+    "description": "スパイスで煮込んだ山羊や牛の肉。煮汁（コンソメ）に浸して焼く「ケサビリア」も人気。"
+  },
+  {
+    "id": "pescado",
+    "name": "タコス・デ・ペスカード",
+    "nameEs": "Tacos de Pescado",
+    "emoji": "🐟",
+    "region": "バハ・カリフォルニア州",
+    "spicy": 1,
+    "description": "衣をつけて揚げた白身魚に、キャベツとクリーミーなソースを合わせる。"
+  },
+  {
+    "id": "camaron",
+    "name": "タコス・デ・カマロン",
+    "nameEs": "Tacos de Camarón",
+    "emoji": "🦐",
+    "region": "メキシコ沿岸部",
+    "spicy": 2,
+    "description": "エビをグリルまたはフライにしたタコス。チポトレマヨとの相性が抜群。"
+  },
+  {
+    "id": "nopales",
+    "name": "ノパレス",
+    "nameEs": "Nopales",
+    "emoji": "🌵",
+    "region": "メキシコ中部",
+    "spicy": 1,
+    "description": "ウチワサボテンの若い茎をグリルしたもの。オクラのような食感でベジタリアンにも人気。"
+  }
+]
