@@ -33,16 +33,33 @@ function NoteEmbed({ article }) {
 }
 
 
+// YouTube はプライバシー強化モード（youtube-nocookie.com）で埋め込む。
+// 再生するまで視聴者の閲覧情報を YouTube が Cookie に保存しない
+function YouTubeEmbed({ article }) {
+  return (
+    <iframe
+      className="youtube-embed"
+      src={`https://www.youtube-nocookie.com/embed/${article.id}`}
+      title={article.title}
+      loading="lazy"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    />
+  )
+}
+
 export default function Articles({ articles }) {
   return (
     <section>
-      <p className="lead">タコスについての読みもの。カードを押すと記事が開きます。</p>
+      <p className="lead">タコスについての記事や動画。</p>
       <ul className="article-list">
         {articles.map((article) => (
           <li key={article.id}>
             {article.source === 'note' && <NoteEmbed article={article} />}
+            {article.source === 'youtube' && <YouTubeEmbed article={article} />}
             <a className="article-link" href={article.url} target="_blank" rel="noreferrer">
-              記事を開く ↗
+              {article.source === 'youtube' ? 'YouTube で見る ↗' : '記事を開く ↗'}
             </a>
           </li>
         ))}

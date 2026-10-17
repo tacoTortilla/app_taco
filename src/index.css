@@ -159,6 +159,10 @@ button {
   display: block; width: 100%; max-width: 494px;
   border: 0; border-radius: 12px;
 }
+.youtube-embed {
+  display: block; width: 100%; max-width: 494px; aspect-ratio: 16 / 9;
+  border: 0; border-radius: 12px; background: #000;
+}
 .article-link { display: inline-block; margin-top: 6px; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
 
 .footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 0.8rem; }
