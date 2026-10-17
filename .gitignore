@@ -1,4 +1,22 @@
+# 依存・ビルド成果物
 node_modules
 dist
+
+# 環境変数・秘密情報（サーバ版で API キー等を使うときに必須）
+.env
+.env.*
+!.env.example
+*.local
+
+# エディタ・ツール
+.vscode/
+.idea/
+.claude/settings.local.json
+
+# OS
 .DS_Store
+
+# テスト・ログ
+coverage/
 *.log
+npm-debug.log*
