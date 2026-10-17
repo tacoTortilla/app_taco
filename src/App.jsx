@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
-import { fetchShops, fetchTacos } from './api.js'
+import { fetchArticles, fetchShops, fetchTacos } from './api.js'
 import { useLocalStorage } from './useLocalStorage.js'
 import ShopList from './components/ShopList.jsx'
 import TacoGuide from './components/TacoGuide.jsx'
+import Articles from './components/Articles.jsx'
 
 const TABS = [
   { id: 'shops', label: 'お店を探す', icon: '📍' },
   { id: 'tacos', label: 'タコス図鑑', icon: '📖' },
+  { id: 'articles', label: '読みもの', icon: '📰' },
   { id: 'favorites', label: 'お気に入り', icon: '★' },
 ]
 
@@ -14,12 +16,14 @@ export default function App() {
   const [tab, setTabState] = useState('shops')
   const [shops, setShops] = useState([])
   const [tacos, setTacos] = useState([])
+  const [articles, setArticles] = useState([])
   const [favorites, setFavorites] = useLocalStorage('taco:favorites', [])
   const [tacoFilter, setTacoFilter] = useState(null)
 
   useEffect(() => {
     fetchShops().then(setShops)
     fetchTacos().then(setTacos)
+    fetchArticles().then(setArticles)
   }, [])
 
   // 下部タブで切り替えたとき、前の画面のスクロール位置のままにならないようにする
@@ -72,6 +76,7 @@ export default function App() {
           />
         )}
         {tab === 'tacos' && <TacoGuide tacos={tacos} shops={shops} onSelect={showShopsServing} />}
+        {tab === 'articles' && <Articles articles={articles} />}
         {tab === 'favorites' && (
           <ShopList
             shops={shops.filter((s) => favorites.includes(s.id))}

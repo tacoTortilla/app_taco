@@ -154,6 +154,13 @@ button {
 .taco-desc { margin: 0 0 10px; font-size: 0.88rem; flex: 1; }
 .taco-count { color: var(--accent); font-weight: 600; font-size: 0.85rem; }
 
+.article-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; }
+.note-embed {
+  display: block; width: 100%; max-width: 494px;
+  border: 0; border-radius: 12px;
+}
+.article-link { display: inline-block; margin-top: 6px; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+
 .footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 0.8rem; }
 
 /* ---------- スマホ ---------- */
