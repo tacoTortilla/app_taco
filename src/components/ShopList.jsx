@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import ShopCard from './ShopCard.jsx'
+import { prefecturesIn } from '../prefectures.js'
 
 const SORTS = {
   rating: { label: '評価が高い順', fn: (a, b) => b.rating - a.rating },
@@ -12,29 +13,27 @@ export default function ShopList({
   tacos,
   favorites,
   onToggleFavorite,
-  tacoFilter = null,
-  onTacoFilterChange,
   emptyMessage = '条件に合うお店が見つかりませんでした。',
 }) {
   const [query, setQuery] = useState('')
-  const [area, setArea] = useState('')
+  const [prefecture, setPrefecture] = useState('')
   const [tags, setTags] = useState([])
   const [sort, setSort] = useState('rating')
 
-  const areas = useMemo(() => [...new Set(shops.map((s) => s.area))], [shops])
+  const prefectures = useMemo(() => prefecturesIn(shops), [shops])
   const allTags = useMemo(() => [...new Set(shops.flatMap((s) => s.tags))], [shops])
   const tacoById = useMemo(() => Object.fromEntries(tacos.map((t) => [t.id, t])), [tacos])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
     return shops
-      .filter((s) => !area || s.area === area)
+      .filter((s) => !prefecture || s.prefecture === prefecture)
       .filter((s) => tags.every((t) => s.tags.includes(t)))
-      .filter((s) => !tacoFilter || s.specialties.includes(tacoFilter))
       .filter((s) => {
         if (!q) return true
         const text = [
           s.name,
+          s.prefecture,
           s.area,
           s.station,
           s.description,
@@ -46,7 +45,7 @@ export default function ShopList({
         return text.includes(q)
       })
       .sort(SORTS[sort].fn)
-  }, [shops, query, area, tags, tacoFilter, sort, tacoById])
+  }, [shops, query, prefecture, tags, sort, tacoById])
 
   const toggleTag = (tag) =>
     setTags((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]))
@@ -62,11 +61,15 @@ export default function ShopList({
           onChange={(e) => setQuery(e.target.value)}
         />
         <div className="filter-row">
-          <select value={area} onChange={(e) => setArea(e.target.value)}>
-            <option value="">すべてのエリア</option>
-            {areas.map((a) => (
-              <option key={a} value={a}>
-                {a}
+          <select
+            value={prefecture}
+            onChange={(e) => setPrefecture(e.target.value)}
+            aria-label="都道府県"
+          >
+            <option value="">すべての都道府県</option>
+            {prefectures.map((p) => (
+              <option key={p} value={p}>
+                {p}
               </option>
             ))}
           </select>
@@ -89,14 +92,6 @@ export default function ShopList({
             </button>
           ))}
         </div>
-        {tacoFilter && tacoById[tacoFilter] && (
-          <div className="active-filter">
-            {tacoById[tacoFilter].emoji} {tacoById[tacoFilter].name} が食べられるお店
-            <button onClick={() => onTacoFilterChange?.(null)} aria-label="絞り込みを解除">
-              ✕
-            </button>
-          </div>
-        )}
       </div>
 
       <p className="count">{filtered.length} 件</p>

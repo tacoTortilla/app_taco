@@ -2,14 +2,12 @@ import { useEffect, useState } from 'react'
 import { fetchArticles, fetchShops, fetchTacos } from './api.js'
 import { useLocalStorage } from './useLocalStorage.js'
 import ShopList from './components/ShopList.jsx'
-import TacoGuide from './components/TacoGuide.jsx'
 import Articles from './components/Articles.jsx'
 
 const TABS = [
   { id: 'shops', label: 'お店を探す', icon: '📍' },
-  { id: 'tacos', label: 'タコス図鑑', icon: '📖' },
-  { id: 'articles', label: '読みもの', icon: '📰' },
   { id: 'favorites', label: 'お気に入り', icon: '★' },
+  { id: 'articles', label: '読みもの', icon: '📰' },
 ]
 
 export default function App() {
@@ -18,7 +16,6 @@ export default function App() {
   const [tacos, setTacos] = useState([])
   const [articles, setArticles] = useState([])
   const [favorites, setFavorites] = useLocalStorage('taco:favorites', [])
-  const [tacoFilter, setTacoFilter] = useState(null)
 
   useEffect(() => {
     fetchShops().then(setShops)
@@ -34,12 +31,6 @@ export default function App() {
 
   const toggleFavorite = (id) =>
     setFavorites((prev) => (prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]))
-
-  // 図鑑からタコスを選ぶと、それを出しているお店一覧に移動する
-  const showShopsServing = (tacoId) => {
-    setTacoFilter(tacoId)
-    setTab('shops')
-  }
 
   return (
     <div className="app">
@@ -71,11 +62,8 @@ export default function App() {
             tacos={tacos}
             favorites={favorites}
             onToggleFavorite={toggleFavorite}
-            tacoFilter={tacoFilter}
-            onTacoFilterChange={setTacoFilter}
           />
         )}
-        {tab === 'tacos' && <TacoGuide tacos={tacos} shops={shops} onSelect={showShopsServing} />}
         {tab === 'articles' && <Articles articles={articles} />}
         {tab === 'favorites' && (
           <ShopList

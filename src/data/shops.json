@@ -2,84 +2,130 @@
   {
     "id": "s1",
     "name": "Taquería Sol（サンプル）",
+    "prefecture": "東京都",
     "area": "渋谷",
     "station": "渋谷駅 徒歩5分",
     "hours": "11:30-22:00",
     "closed": "月曜",
     "price": 2,
     "rating": 4.5,
-    "tags": ["テイクアウト", "辛口", "深夜営業"],
-    "specialties": ["al-pastor", "carnitas"],
+    "tags": [
+      "テイクアウト",
+      "辛口",
+      "深夜営業"
+    ],
+    "specialties": [
+      "al-pastor",
+      "carnitas"
+    ],
     "description": "回転串焼きのアル・パストールが看板。サルサは5種類から選べる。",
     "mapUrl": ""
   },
   {
     "id": "s2",
     "name": "Casa Tortilla（サンプル）",
+    "prefecture": "東京都",
     "area": "下北沢",
     "station": "下北沢駅 徒歩3分",
     "hours": "12:00-21:00",
     "closed": "火曜",
     "price": 1,
     "rating": 4.2,
-    "tags": ["手作りトルティーヤ", "ベジタリアン対応"],
-    "specialties": ["nopales", "carne-asada"],
+    "tags": [
+      "手作りトルティーヤ",
+      "ベジタリアン対応"
+    ],
+    "specialties": [
+      "nopales",
+      "carne-asada"
+    ],
     "description": "毎朝トウモロコシから挽く手作りトルティーヤ。サボテンのタコスも人気。",
     "mapUrl": ""
   },
   {
     "id": "s3",
     "name": "El Pescador（サンプル）",
-    "area": "鎌倉",
-    "station": "由比ヶ浜駅 徒歩7分",
+    "prefecture": "東京都",
+    "area": "お台場",
+    "station": "東京テレポート駅 徒歩6分",
     "hours": "11:00-18:00",
     "closed": "水曜",
     "price": 2,
     "rating": 4.6,
-    "tags": ["テラス席", "海が見える", "テイクアウト"],
-    "specialties": ["pescado", "camaron"],
-    "description": "バハ・カリフォルニア風のフライドフィッシュタコス。海沿いのテラス席あり。",
+    "tags": [
+      "テラス席",
+      "海が見える",
+      "テイクアウト"
+    ],
+    "specialties": [
+      "pescado",
+      "camaron"
+    ],
+    "description": "バハ・カリフォルニア風のフライドフィッシュタコス。海が見えるテラス席あり。",
     "mapUrl": ""
   },
   {
     "id": "s4",
     "name": "Birria Bros（サンプル）",
+    "prefecture": "東京都",
     "area": "新宿",
     "station": "新宿三丁目駅 徒歩4分",
     "hours": "17:00-翌2:00",
     "closed": "なし",
     "price": 3,
     "rating": 4.4,
-    "tags": ["深夜営業", "お酒が充実", "辛口"],
-    "specialties": ["birria", "barbacoa"],
+    "tags": [
+      "深夜営業",
+      "お酒が充実",
+      "辛口"
+    ],
+    "specialties": [
+      "birria",
+      "barbacoa"
+    ],
     "description": "コンソメスープに浸して食べるビリアタコス専門。メスカルの品揃えも豊富。",
     "mapUrl": ""
   },
   {
     "id": "s5",
     "name": "Mi Abuela（サンプル）",
+    "prefecture": "東京都",
     "area": "吉祥寺",
     "station": "吉祥寺駅 徒歩8分",
     "hours": "11:30-20:00",
     "closed": "日曜",
     "price": 1,
     "rating": 4.0,
-    "tags": ["家族向け", "ベジタリアン対応", "テイクアウト"],
-    "specialties": ["carnitas", "nopales"],
+    "tags": [
+      "家族向け",
+      "ベジタリアン対応",
+      "テイクアウト"
+    ],
+    "specialties": [
+      "carnitas",
+      "nopales"
+    ],
     "description": "メキシコの家庭料理をベースにした素朴な味わい。子ども向けのマイルドメニューあり。",
     "mapUrl": ""
   },
   {
     "id": "s6",
     "name": "Taco Loco Truck（サンプル）",
+    "prefecture": "東京都",
     "area": "渋谷",
     "station": "代々木公園周辺（移動販売）",
     "hours": "11:00-15:00",
     "closed": "雨天休業",
     "price": 1,
     "rating": 4.1,
-    "tags": ["キッチンカー", "テイクアウト"],
-    "specialties": ["carne-asada", "al-pastor"],
+    "tags": [
+      "キッチンカー",
+      "テイクアウト"
+    ],
+    "specialties": [
+      "carne-asada",
+      "al-pastor"
+    ],
     "description": "週末に出店するキッチンカー。出店場所はSNSで告知。",
     "mapUrl": ""
   }

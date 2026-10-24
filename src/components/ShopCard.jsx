@@ -9,7 +9,7 @@ export default function ShopCard({ shop, tacoById, isFavorite, onToggleFavorite 
         <button className="card-title" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
           <h2>{shop.name}</h2>
           <span className="meta">
-            {shop.area} · {'¥'.repeat(shop.price)} · ⭐ {shop.rating.toFixed(1)}
+            {shop.prefecture} {shop.area} · {'¥'.repeat(shop.price)} · ⭐ {shop.rating.toFixed(1)}
           </span>
         </button>
         <button

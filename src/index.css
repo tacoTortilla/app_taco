@@ -87,20 +87,11 @@ button {
 }
 .chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-.active-filter {
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--accent-soft); color: var(--accent);
-  padding: 8px 12px; border-radius: 10px; font-weight: 600;
-}
-.active-filter button {
-  border: none; background: none; color: inherit;
-  min-width: 36px; min-height: 36px;
-}
 
 .count { color: var(--muted); font-size: 0.85rem; margin: 14px 0 8px; }
 .empty { color: var(--muted); text-align: center; padding: 40px 0; }
 
-.shop-list, .taco-grid { list-style: none; padding: 0; margin: 0; }
+.shop-list { list-style: none; padding: 0; margin: 0; }
 .shop-list { display: grid; gap: 12px; }
 
 .card {
@@ -135,24 +126,6 @@ button {
 .map-link { display: inline-block; margin-top: 10px; color: var(--accent); font-weight: 600; }
 
 .lead { color: var(--muted); margin-top: 0; }
-.taco-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-.taco-card {
-  width: 100%; height: 100%; text-align: left;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 14px; padding: 16px;
-  display: flex; flex-direction: column;
-  transition: transform 0.15s, border-color 0.15s;
-}
-@media (hover: hover) {
-  .taco-card:hover { transform: translateY(-2px); border-color: var(--accent); }
-}
-.taco-card:active { border-color: var(--accent); }
-.taco-emoji { font-size: 2rem; }
-.taco-card h2 { margin: 4px 0 0; font-size: 1.05rem; }
-.taco-es { margin: 0; color: var(--muted); font-style: italic; font-size: 0.85rem; }
-.taco-region { margin: 6px 0; font-size: 0.85rem; }
-.taco-desc { margin: 0 0 10px; font-size: 0.88rem; flex: 1; }
-.taco-count { color: var(--accent); font-weight: 600; font-size: 0.85rem; }
 
 .article-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; }
 .note-embed {
@@ -200,6 +173,5 @@ button {
   .chips::-webkit-scrollbar { display: none; }
   .chip { flex: none; }
 
-  .taco-grid { grid-template-columns: 1fr; }
   .footer { margin-top: 24px; }
 }
