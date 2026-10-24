@@ -137,6 +137,22 @@ button {
   display: block; width: 100%; max-width: 494px; aspect-ratio: 16 / 9;
   border: 0; border-radius: 12px; background: #000;
 }
+.link-card {
+  display: block; overflow: hidden; max-width: 494px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  color: inherit; text-decoration: none;
+}
+.link-card img { display: block; width: 100%; aspect-ratio: 1024 / 536; object-fit: cover; background: var(--accent-soft); }
+.link-card-body { padding: 12px 14px 14px; }
+.link-card-kind { font-size: 0.75rem; font-weight: 700; color: var(--muted); }
+.link-card h2 { margin: 2px 0 6px; font-size: 1rem; line-height: 1.45; }
+.link-card p {
+  margin: 0 0 8px; color: var(--muted); font-size: 0.85rem; white-space: pre-wrap;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.link-card-meta { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+@media (hover: hover) { .link-card:hover { border-color: var(--accent); } }
+
 .article-link { display: inline-block; margin-top: 6px; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
 
 

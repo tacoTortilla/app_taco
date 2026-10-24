@@ -49,18 +49,39 @@ function YouTubeEmbed({ article }) {
   )
 }
 
+// note のマガジンには公式の埋め込みカードがない（マガジンのページも埋め込み禁止）ため、
+// タイトル・画像・説明文からアプリ側でリンクカードを作る
+function MagazineCard({ article }) {
+  return (
+    <a className="link-card" href={article.url} target="_blank" rel="noreferrer">
+      {article.image && <img src={article.image} alt="" loading="lazy" />}
+      <div className="link-card-body">
+        <span className="link-card-kind">note マガジン</span>
+        <h2>{article.title}</h2>
+        {article.description && <p>{article.description}</p>}
+        <span className="link-card-meta">マガジンを開く ↗</span>
+      </div>
+    </a>
+  )
+}
+
 export default function Articles({ articles }) {
   return (
     <section>
       <p className="lead">タコスについての記事や動画。</p>
+      {articles.length === 0 && <p className="empty">ただいま準備中です。</p>}
       <ul className="article-list">
         {articles.map((article) => (
           <li key={article.id}>
             {article.source === 'note' && <NoteEmbed article={article} />}
             {article.source === 'youtube' && <YouTubeEmbed article={article} />}
-            <a className="article-link" href={article.url} target="_blank" rel="noreferrer">
-              {article.source === 'youtube' ? 'YouTube で見る ↗' : '記事を開く ↗'}
-            </a>
+            {article.source === 'note-magazine' ? (
+              <MagazineCard article={article} />
+            ) : (
+              <a className="article-link" href={article.url} target="_blank" rel="noreferrer">
+                {article.source === 'youtube' ? 'YouTube で見る ↗' : '記事を開く ↗'}
+              </a>
+            )}
           </li>
         ))}
       </ul>
