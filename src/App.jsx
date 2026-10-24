@@ -4,6 +4,18 @@ import { useLocalStorage } from './useLocalStorage.js'
 import ShopList from './components/ShopList.jsx'
 import Articles from './components/Articles.jsx'
 
+// お気に入りの旧保存形式からの移行（一度だけ）。
+// TAQUITO 新小岩の ID を tokyo-0001 → tokyo-0009（Notion のタコス屋メモ番号）に変えたため、
+// 旧IDのまま残すと、後で tokyo-0001 になる別のお店がお気に入りに出てしまう
+function migrateFavorites() {
+  try {
+    const old = JSON.parse(localStorage.getItem('taco:favorites') ?? '[]')
+    return [...new Set(old.map((id) => (id === 'tokyo-0001' ? 'tokyo-0009' : id)))]
+  } catch {
+    return []
+  }
+}
+
 const TABS = [
   { id: 'shops', label: 'お店を探す', icon: '📍' },
   { id: 'favorites', label: 'お気に入り', icon: '★' },
@@ -15,7 +27,7 @@ export default function App() {
   const [shops, setShops] = useState([])
   const [tacos, setTacos] = useState([])
   const [articles, setArticles] = useState([])
-  const [favorites, setFavorites] = useLocalStorage('taco:favorites', [])
+  const [favorites, setFavorites] = useLocalStorage('taco:favorites:v2', migrateFavorites)
 
   useEffect(() => {
     fetchShops().then(setShops)

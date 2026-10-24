@@ -4,10 +4,11 @@ export function useLocalStorage(key, initialValue) {
   const [value, setValue] = useState(() => {
     try {
       const stored = localStorage.getItem(key)
-      return stored ? JSON.parse(stored) : initialValue
+      if (stored) return JSON.parse(stored)
     } catch {
-      return initialValue
+      // 読めなければ初期値を使う
     }
+    return typeof initialValue === 'function' ? initialValue() : initialValue
   })
 
   useEffect(() => {

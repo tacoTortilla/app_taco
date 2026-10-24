@@ -1,11 +1,17 @@
 [
   {
-    "id": "tokyo-0001",
+    "id": "tokyo-0009",
     "name": "TAQUITO 新小岩",
     "prefecture": "東京都",
     "area": "新小岩",
-    "tacos": ["アルパストール", "コチニータピビル", "アサダ", "ピカディージョ"],
+    "tacos": [
+      "アルパストール",
+      "コチニータピビル",
+      "アサダ",
+      "ピカディージョ"
+    ],
     "features": "メキシコ各地の味をタコスに詰め込む、メキシコ人シェフの店",
+    "comment": "コメント例１\n改行で書ける\nようだ",
     "access": "JR総武線 新小岩駅南口 徒歩約5分",
     "mapUrl": "https://maps.app.goo.gl/aQpNGLA38WDfMkWP8"
   }
