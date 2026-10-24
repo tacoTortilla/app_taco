@@ -1,17 +1,47 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
+import { findTaco } from '../tacoLookup.js'
 
-export default function ShopCard({ shop, tacoById, isFavorite, onToggleFavorite }) {
+// コメントには必ずこの注意書きを添える（データ側では省略できないようにここで固定）
+const COMMENT_NOTE =
+  '※ コメントは独自調査による個人の感想です。実際の内容や最新の情報と異なる場合があります。'
+
+// 調査して感じたコメント。長文になりうるので最初は数行だけ見せ、はみ出すときだけ「続きを読む」を出す
+function Comment({ text }) {
+  const ref = useRef(null)
   const [open, setOpen] = useState(false)
+  const [overflowing, setOverflowing] = useState(false)
 
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (el && !open) setOverflowing(el.scrollHeight > el.clientHeight + 1)
+  }, [text, open])
+
+  return (
+    <div className="comment">
+      <p className="comment-label">💬 コメント</p>
+      <p ref={ref} className={open ? 'comment-text' : 'comment-text clamped'}>
+        {text}
+      </p>
+      {(overflowing || open) && (
+        <button className="comment-toggle" onClick={() => setOpen((o) => !o)}>
+          {open ? '閉じる' : '続きを読む'}
+        </button>
+      )}
+      <p className="comment-note">{COMMENT_NOTE}</p>
+    </div>
+  )
+}
+
+export default function ShopCard({ shop, tacos, isFavorite, onToggleFavorite }) {
   return (
     <li className="card">
       <div className="card-head">
-        <button className="card-title" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+        <div className="card-title">
           <h2>{shop.name}</h2>
           <span className="meta">
-            {shop.prefecture} {shop.area} · {'¥'.repeat(shop.price)} · ⭐ {shop.rating.toFixed(1)}
+            {shop.prefecture} {shop.area}
           </span>
-        </button>
+        </div>
         <button
           className={isFavorite ? 'fav active' : 'fav'}
           onClick={onToggleFavorite}
@@ -22,40 +52,23 @@ export default function ShopCard({ shop, tacoById, isFavorite, onToggleFavorite 
       </div>
 
       <div className="specialties">
-        {shop.specialties.map((id) =>
-          tacoById[id] ? (
-            <span key={id} className="pill">
-              {tacoById[id].emoji} {tacoById[id].name}
-            </span>
-          ) : null,
-        )}
+        {shop.tacos.map((name) => (
+          <span key={name} className="pill">
+            {findTaco(tacos, name)?.emoji ?? '🌮'} {name}
+          </span>
+        ))}
       </div>
 
-      {open && (
-        <div className="card-body">
-          <p>{shop.description}</p>
-          <dl>
-            <dt>アクセス</dt>
-            <dd>{shop.station}</dd>
-            <dt>営業時間</dt>
-            <dd>{shop.hours}</dd>
-            <dt>定休日</dt>
-            <dd>{shop.closed}</dd>
-          </dl>
-          <div className="tags">
-            {shop.tags.map((t) => (
-              <span key={t} className="tag">
-                #{t}
-              </span>
-            ))}
-          </div>
-          {shop.mapUrl && (
-            <a className="map-link" href={shop.mapUrl} target="_blank" rel="noreferrer">
-              地図で見る ↗
-            </a>
-          )}
-        </div>
-      )}
+      <div className="card-body">
+        {shop.features && <p>{shop.features}</p>}
+        {shop.comment && <Comment text={shop.comment} />}
+        {shop.access && <p className="access">🚃 {shop.access}</p>}
+        {shop.mapUrl && (
+          <a className="map-link" href={shop.mapUrl} target="_blank" rel="noreferrer">
+            Google マップで見る ↗
+          </a>
+        )}
+      </div>
     </li>
   )
 }

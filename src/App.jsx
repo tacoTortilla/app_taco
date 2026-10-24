@@ -29,6 +29,8 @@ export default function App() {
     window.scrollTo(0, 0)
   }
 
+  const favoriteShops = shops.filter((s) => favorites.includes(s.id))
+
   const toggleFavorite = (id) =>
     setFavorites((prev) => (prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]))
 
@@ -48,8 +50,8 @@ export default function App() {
           >
             <span className="tab-icon">{t.icon}</span>
             {t.label}
-            {t.id === 'favorites' && favorites.length > 0 && (
-              <span className="badge">{favorites.length}</span>
+            {t.id === 'favorites' && favoriteShops.length > 0 && (
+              <span className="badge">{favoriteShops.length}</span>
             )}
           </button>
         ))}
@@ -67,7 +69,7 @@ export default function App() {
         {tab === 'articles' && <Articles articles={articles} />}
         {tab === 'favorites' && (
           <ShopList
-            shops={shops.filter((s) => favorites.includes(s.id))}
+            shops={favoriteShops}
             tacos={tacos}
             favorites={favorites}
             onToggleFavorite={toggleFavorite}
@@ -75,8 +77,6 @@ export default function App() {
           />
         )}
       </main>
-
-      <footer className="footer">※ 掲載店舗はサンプルデータです</footer>
     </div>
   )
 }

@@ -70,5 +70,23 @@
     "region": "メキシコ中部",
     "spicy": 1,
     "description": "ウチワサボテンの若い茎をグリルしたもの。オクラのような食感でベジタリアンにも人気。"
+  },
+  {
+    "id": "cochinita-pibil",
+    "name": "コチニータ・ピビル",
+    "nameEs": "Cochinita Pibil",
+    "emoji": "🍊",
+    "region": "ユカタン州",
+    "spicy": 1,
+    "description": "アチョーテとサワーオレンジでマリネした豚肉を、バナナの葉で包んでじっくり蒸し焼きにする。紫玉ねぎの酢漬けを添えるのが定番。"
+  },
+  {
+    "id": "picadillo",
+    "name": "ピカディージョ",
+    "nameEs": "Picadillo",
+    "emoji": "🥩",
+    "region": "メキシコ各地",
+    "spicy": 1,
+    "description": "ひき肉をトマトやじゃがいも、にんじんなどと一緒に煮込んだ家庭的な具。"
   }
 ]
