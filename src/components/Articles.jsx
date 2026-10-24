@@ -68,7 +68,7 @@ function MagazineCard({ article }) {
 export default function Articles({ articles }) {
   return (
     <section>
-      <p className="lead">タコスについての記事や動画。</p>
+      <p className="lead">タコスについての記事。</p>
       {articles.length === 0 && <p className="empty">ただいま準備中です。</p>}
       <ul className="article-list">
         {articles.map((article) => (

@@ -50,7 +50,6 @@ export default function App() {
     <div className="app">
       <header className="header">
         <h1>🌮 Taco Navi</h1>
-        <p className="subtitle">タコスのお店と情報をまとめてチェック</p>
       </header>
 
       <nav className="tabs">

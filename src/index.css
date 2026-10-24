@@ -48,7 +48,6 @@ button {
 
 .header { padding: max(28px, env(safe-area-inset-top)) 0 12px; }
 .header h1 { margin: 0; font-size: 1.8rem; }
-.subtitle { margin: 4px 0 0; color: var(--muted); }
 
 .tabs {
   position: sticky; top: 0; z-index: 10;
@@ -161,7 +160,6 @@ button {
   .app { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
   .header { padding-top: max(18px, env(safe-area-inset-top)); }
   .header h1 { font-size: 1.5rem; }
-  .subtitle { font-size: 0.85rem; }
 
   /* タブは親指で押しやすい画面下に固定 */
   .tabs {
