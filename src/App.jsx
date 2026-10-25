@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { fetchArticles, fetchShops, fetchTacos } from './api.js'
+import { fetchArticles, fetchShops, fetchTacos, fetchWiki } from './api.js'
 import { useLocalStorage } from './useLocalStorage.js'
 import ShopList from './components/ShopList.jsx'
 import Articles from './components/Articles.jsx'
+import TacoWiki from './components/TacoWiki.jsx'
 
 // お気に入りの旧保存形式からの移行（一度だけ）。
 // TAQUITO 新小岩の ID を tokyo-0001 → tokyo-0009（Notion のタコス屋メモ番号）に変えたため、
@@ -19,6 +20,7 @@ function migrateFavorites() {
 const TABS = [
   { id: 'shops', label: 'お店を探す', icon: '📍' },
   { id: 'favorites', label: 'お気に入り', icon: '★' },
+  { id: 'wiki', label: 'タコスwiki', icon: '📖' },
   { id: 'articles', label: '読みもの', icon: '📰' },
 ]
 
@@ -27,12 +29,14 @@ export default function App() {
   const [shops, setShops] = useState([])
   const [tacos, setTacos] = useState([])
   const [articles, setArticles] = useState([])
+  const [wiki, setWiki] = useState([])
   const [favorites, setFavorites] = useLocalStorage('taco:favorites:v2', migrateFavorites)
 
   useEffect(() => {
     fetchShops().then(setShops)
     fetchTacos().then(setTacos)
     fetchArticles().then(setArticles)
+    fetchWiki().then(setWiki)
   }, [])
 
   // 下部タブで切り替えたとき、前の画面のスクロール位置のままにならないようにする
@@ -77,6 +81,7 @@ export default function App() {
             onToggleFavorite={toggleFavorite}
           />
         )}
+        {tab === 'wiki' && <TacoWiki wiki={wiki} />}
         {tab === 'articles' && <Articles articles={articles} />}
         {tab === 'favorites' && (
           <ShopList

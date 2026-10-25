@@ -3,6 +3,7 @@
 import shops from './data/shops.json'
 import tacos from './data/tacos.json'
 import articles from './data/articles.json'
+import wiki from './data/wiki.json'
 
 export async function fetchShops() {
   return shops
@@ -14,4 +15,8 @@ export async function fetchTacos() {
 
 export async function fetchArticles() {
   return articles
+}
+
+export async function fetchWiki() {
+  return wiki
 }
