@@ -9,7 +9,7 @@ const FIELDS = [
 const FOOTER_LINKS = [
   ['トルティーヤ', 'https://note.com/honobonotacos/n/ne38e2f8676c6'],
   ['サルサ', 'https://note.com/honobonotacos/n/n774277dcd31c'],
-  ['トッピング', 'https://note.com/honobonotacos/n/n774277dcd31c'],
+  ['トッピング', 'https://note.com/honobonotacos/n/nfd90ff07f3e3'],
 ]
 
 function WikiCard({ item }) {
