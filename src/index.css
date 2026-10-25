@@ -161,6 +161,10 @@ button {
 .wiki-nav-button:hover { border-color: var(--accent); color: var(--accent); }
 /* PC では上部に固定したタブの下に隠れないように */
 .wiki-card { scroll-margin-top: 76px; }
+.wiki-image {
+  display: block; width: 100%; max-width: 480px; height: auto;
+  margin: 12px auto 0; border-radius: 12px;
+}
 .wiki-summary { margin: 8px 0 12px; font-weight: 600; }
 .wiki-fields { margin: 0; display: grid; gap: 10px; }
 .wiki-fields dt { font-size: 0.8rem; font-weight: 700; color: var(--muted); }

@@ -21,6 +21,9 @@ function WikiCard({ item }) {
         </h2>
         <span className="meta">{item.nameEs}</span>
       </div>
+      {item.image && (
+        <img className="wiki-image" src={item.image} alt={`${item.name}のイラスト`} loading="lazy" />
+      )}
       <p className="wiki-summary">{item.summary}</p>
       <dl className="wiki-fields">
         {FIELDS.filter(([key]) => item[key]).map(([key, label]) => (
